@@ -1,0 +1,11 @@
+{
+    "/a": {
+      "target": "http://dev.admin.carrots.ptteng.com",
+      "secure": false,
+      "pathRewrite": {
+             "^/a": ""
+            },
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+}

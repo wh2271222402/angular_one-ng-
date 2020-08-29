@@ -1,0 +1,76 @@
+<header>
+    <h4>新增Article</h4>
+</header>
+
+<section>
+    <div class="article-xq-one">
+        <h1>*</h1><p>标题名称</p>
+        <input required="required" [(ngModel)]="xqdata.title" />
+    </div>
+    
+    <div class="article-xq-two">
+        <h1>*</h1><p>类型</p>
+        <select id="xq-typea" class="typea" [(ngModel)]="xqdata.type" (click)="industry()">
+            <option value="0">首页banner</option>
+            <option value="1">找职位banner</option>
+            <option value="2">找精英banner</option>
+            <option value="3">行业大图</option>
+        </select>
+
+        <select id="typeb" class="typeb" *ngIf="xqdata.type == 3" [(ngModel)]="xqdata.industry">
+            <option value="0">移动互联网</option>
+            <option value="1">电子商务</option>
+            <option value="2">企业服务</option>
+            <option value="3">O2O</option>
+            <option value="4">教育</option>
+            <option value="5">金融</option>
+            <option value="6">游戏</option>
+        </select>
+    </div>
+
+    <div class="article-xq-three">
+        <p>说明</p>
+        <input [(ngModel)]="xqdata.content" />
+    </div>
+
+    <div class="article-xq-four">
+        <h1>*</h1><p>跳转链接</p>
+        <input id="xq-url" [(ngModel)]="xqdata.url" />
+    </div>
+
+    <div class="article-xq-five">
+        <h1>*</h1><p>配图</p>
+        <input type="file" id="input" accept="image/*" (change)=getFile($event) />
+        <img id="xq-img" src= "{{xqdata.img}}">
+    </div>
+
+    <div class="article-xq-six">
+        <table>
+            <tr>
+                <th>图片名</th>
+                <th>文件大小</th>
+                <th>进度</th>
+                <th>操作</th>
+                <th>操作</th>
+            </tr>
+            <tr>
+                <td>{{name}}</td>
+                <td>{{size}}</td>
+                <td>{{Progress}}%</td>
+                <td><span *ngIf="icon">√</span></td>
+                <td>
+                    <button (click)="upload()" disabled="{{dis}}">上传</button>
+                    &nbsp;
+                    <button (click)="delete()" disabled="{{dis}}">删除</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="article-xq-seven">
+        <button (click)="upLine()">立即上线</button>
+        <button (click)="draft()">存为草稿</button>
+        <button [routerLink]="[ '../article-lb' ]">取消</button>
+    </div>
+
+</section>

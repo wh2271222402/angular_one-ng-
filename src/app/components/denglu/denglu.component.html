@@ -1,0 +1,10 @@
+<div class="denglu">
+    <h2>萝卜多后台登录</h2>
+    <input class="name"  type="text" placeholder="请输入账号" [(ngModel)]="this.open.loginData.name" />
+    <br />
+    <input class="password" type="password" placeholder="请输入密码" (input)=this.open.textCheck() [(ngModel)]="this.open.loginData.password" />
+    <br />
+    <p>{{this.open.psText}}</p>
+    <br />
+    <button  class="open" disabled='{{this.open.ddd}}' (click)="this.open.logIn()">登录</button>
+</div>

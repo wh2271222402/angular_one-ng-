@@ -1,0 +1,95 @@
+header {
+    height: 8%;
+    margin: 20px 20px 0 20px;
+    border: 1px #000 solid;
+    h4 {
+        left: 10px;
+        margin: 7px 10px;
+    }
+}
+
+section {
+    margin: 0 20px;
+    padding: 20px 0;
+    border: 1px #000 solid;
+    .article-xq-one,.article-xq-two,.article-xq-three,.article-xq-four,.article-xq-five {
+        margin: 0 100px;
+        position: relative;
+        height: 40px;
+        .typeb {
+            position: absolute;
+            left: 20%;
+        }
+        h1 {
+            color: red;
+            margin-left: -10px;
+            position: absolute;
+            top: 4px;
+            display: inline-block;
+        }
+        p {
+            font-weight: bolder;
+            text-align: justify;
+            width: 60px;
+            padding-top: 3px;  
+            display: inline-block;
+        }
+        p:after {
+            content: '';
+            display: inline-block;
+            width: 100%;
+        }
+        input {
+            width: 600px;
+            position: absolute;
+            top: 0px;
+            left: 76px;
+        }
+        select {
+            width: 100px;
+            position: absolute;
+            top: 0px;
+            left: 76px;
+            height: 28px;
+        }
+        .article-button-xzwj {
+            width: 100px;
+            position: absolute;
+            top: 0px;
+            left: 76px;
+        }
+        img {
+            width: 200px;
+            height: 100px;
+            position: absolute;
+            top: 40px;
+            left: 76px;
+            display: block;
+        }
+    }
+    .article-xq-six {
+        width: 600px;
+        text-align: center;
+        height: 20px;
+        margin-top: 120px;
+        margin-left: 177px;
+        border-bottom: 1px #000 solid;
+        table {
+            tr {
+                th {
+                    width: 150px;
+                }
+            }
+        }
+    }
+    .article-xq-seven {
+        width: 610px;
+        margin: 40px 0 20px 167px;
+        button {
+            margin-left: 10px;
+        }
+        button:last-child {
+            float: right;
+        }
+    }
+}

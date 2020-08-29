@@ -1,0 +1,84 @@
+<header>
+    <div class="article-lb-one">
+        <p>标题</p>
+        <input id="input1" type="text" value="" [(ngModel)]="inputInfo.input1" />
+    </div>
+
+    <div class="article-lb-two">
+        <p>创建者</p>
+        <input id="input2" type="text" value="" [(ngModel)]="inputInfo.input2" />
+    </div>
+
+    <div class="article-lb-three">
+        <p>创建时间</p>
+        <nz-range-picker [(ngModel)]="dateRange" (ngModelChange)="onChange($event)"></nz-range-picker>
+    </div>
+
+    <div class="article-lb-four">
+        <p>状态</p>
+        <select id="article-lb-zt">
+            <option value="a1">全部</option>
+            <option value="a2">草稿</option>
+            <option value="a3">上线</option>
+        </select>
+    </div>
+
+    <div class="article-lb-five">
+        <p>类型</p>
+        <select id="article-lb-lx">
+            <option value="b1">全部</option>
+            <option value="b2">首页banner</option>
+            <option value="b3">找职位banner</option>
+            <option value="b4">找精英banner</option>
+            <option value="b5">行业大图</option>
+        </select>
+    </div>
+    <div class="article-lb-six">
+        <button (click)="eliminate()">清空</button>
+        <button (click)="setNewData()">搜索</button>
+    </div>
+</header>
+
+<section>
+    <div class="article-gl">
+        <p>Article管理</p>
+        <button (click)="newArticle()">+新增</button>
+    </div>
+
+    <table class="article-header">
+        <tr id="article-lb-bt">
+            <th>序号</th>
+            <th>图片</th>
+            <th>标题</th>
+            <th>类型</th>
+            <th>创建者</th>
+            <th>创建时间</th>
+            <th>修改时间</th>
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+    </table>
+
+    <table class="article-body" *ngFor="let item of lbdata; let key = index">
+        <tr>
+            <td>{{key+1}}</td>
+            <td><img src="{{item.img}}"></td>
+            <td>{{item.title}}</td>
+            <td>{{item.type}}</td>
+            <td>{{item.author}}</td>
+            <td>{{item.createAt | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+            <td>{{item.updateAt | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+            <td>{{item.status}}</td>
+            <td>
+                <button *ngIf="flag == item.status" (click)="goOnline(item.id,item.status)">上线</button>
+                <button *ngIf="flag != item.status" (click)="goOnline(item.id,item.status)">下线</button>
+                <button [routerLink]="[ '../article-xq' ]" [queryParams]="{id:item.id}">编辑</button>
+                <button (click)="Delete(item.id)">删除</button>
+            </td>
+        </tr>
+    </table>
+    <br />
+    <div class="listPagination">
+        <nz-pagination [nzPageIndex]="lbPageIndex" [nzTotal]="lbsize" (nzPageIndexChange)="PageIndexChange($event)" (nzPageSizeChange)="PageSizeChange($event)" nzShowQuickJumper></nz-pagination>
+    </div>
+</section>

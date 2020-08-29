@@ -1,0 +1,39 @@
+<div class="home">
+    <header>
+        <img class="logo" src="../../../assets/icon/logo.png" />
+        <div class="user">
+            <span>{{psId}}</span>
+            <img class="icon" src="../../../assets/icon/yonghu.png" />
+            <a>{{psName}}</a>|
+            <a (click)="Exit()">退出</a>
+        </div>
+    </header>
+    
+    
+    <section>
+        <div class="left">
+            <div class="welcome" [routerLink]="[ '/ht/welcome' ]" >
+                <img src="../../../assets/icon/home.png" />
+                <a>欢迎页</a>
+            </div>
+            <div class="article">
+                <div class="article-elder" (click)="article()">
+                    <img src=".././../../assets/icon/shezhi.png" />
+                    <a>内容管理</a>
+                    <img src="../../../assets/icon/right-JT.png" *ngIf="!flag" />
+                    <img src="../../../assets/icon/button-JT.png" *ngIf="flag" />
+                </div>
+    
+                <div class="article-children" *ngIf="flag">
+                    <div class="article-GL">
+                        <a [routerLink]="[ '/ht/article-lb' ]">article管理</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="right">
+            <router-outlet></router-outlet>
+        </div>
+    </section>
+</div>
